@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">inclass03</string>
+    <string name="welcome">Welcome !!</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="id">ID:</string>
+    <string name="department">Dept:</string>
+    <string name="email_hint">Enter Email</string>
+    <string name="id_hint">Enter ID</string>
+    <string name="select">Select</string>
+    <string name="submit">Submit</string>
+    <string name="name_hint">Enter Name</string>
+    <string name="computer_science">Computer Science</string>
+    <string name="sis">software Info. Systems</string>
+    <string name="bio">Bio Informatics</string>
+    <string name="data_science">Data Science</string>
+    <string name="dept_cancel">Cancel</string>
+    <string name="dept_select">Select</string>
+    <string name="profile_name">Name:</string>
+    <string name="profile_email">Email:</string>
+    <string name="profile_id">ID:</string>
+    <string name="profile_dept">Dept:</string>
+</resources>

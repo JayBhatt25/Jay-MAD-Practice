@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EduFragment">
+
+    <RadioGroup
+        android:id="@+id/radioGroupEdu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonBachelors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bachelors" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMasters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masters" />
+
+        <RadioButton
+            android:id="@+id/radioButtontwelve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12th or less" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCertificate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Certificate" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/buttonSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Set"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroupEdu"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupEdu" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Cancel"
+        app:layout_constraintStart_toStartOf="@+id/radioGroupEdu"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupEdu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
