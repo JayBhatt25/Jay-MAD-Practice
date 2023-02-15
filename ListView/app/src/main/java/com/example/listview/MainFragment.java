@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class MainFragment extends Fragment {
     FragmentMainBinding binding;
-    ArrayAdapter<User> adapter;
+    UserAdapter adapter;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM_USERS = "users";
@@ -68,14 +68,14 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, mUsers);
+        adapter = new UserAdapter(getActivity(), R.layout.user_row_item,mUsers);
         binding.listView.setAdapter(adapter);
         binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                mUsers.remove(i);
-                adapter.notifyDataSetChanged();
+//                mUsers.remove(i);
+//                adapter.notifyDataSetChanged();
             }
         });
 
