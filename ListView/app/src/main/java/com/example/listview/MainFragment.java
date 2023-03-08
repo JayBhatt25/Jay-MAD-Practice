@@ -1,10 +1,13 @@
 package com.example.listview;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 
 import com.example.listview.databinding.FragmentMainBinding;
 
@@ -22,9 +26,14 @@ import java.util.ArrayList;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements UserRecyclerViewAdapter.AdapterListener {
     FragmentMainBinding binding;
-    UserAdapter adapter;
+    UserRecyclerViewAdapter userRecyclerViewAdapter;
+
+    RecyclerView recyclerView;
+
+
+    LinearLayoutManager linearLayoutManager;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM_USERS = "users";
@@ -56,6 +65,13 @@ public class MainFragment extends Fragment {
         }
     }
 
+    Mainlistener mainListener;
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mainListener = (Mainlistener) context;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,16 +84,24 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new UserAdapter(getActivity(), R.layout.user_row_item,mUsers);
-        binding.listView.setAdapter(adapter);
-        binding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        recyclerView = getActivity().findViewById(R.id.recyclerView);
 
-//                mUsers.remove(i);
-//                adapter.notifyDataSetChanged();
-            }
-        });
+        recyclerView.setHasFixedSize(true);
 
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        userRecyclerViewAdapter = new UserRecyclerViewAdapter(mUsers,this);
+        recyclerView.setAdapter(userRecyclerViewAdapter);
+
+    }
+
+
+    @Override
+    public void goToProfile(User user) {
+        mainListener.showProfile(user);
+    }
+
+    public interface Mainlistener{
+        void showProfile(User user);
     }
 }

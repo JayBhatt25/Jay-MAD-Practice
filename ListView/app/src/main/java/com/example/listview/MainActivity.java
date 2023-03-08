@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainFragment.Mainlistener {
     String[] colors = {"Red", "Green", "Blue"};
     ArrayList<User> users = new ArrayList<>();
     @Override
@@ -21,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.rootView, MainFragment.newInstance(users))
+                .commit();
+    }
+
+
+    @Override
+    public void showProfile(User user) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView, ProfileFragment.newInstance(user))
+                .addToBackStack(null)
                 .commit();
     }
 }

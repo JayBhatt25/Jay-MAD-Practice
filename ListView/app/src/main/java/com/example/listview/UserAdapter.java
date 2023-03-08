@@ -31,14 +31,16 @@ public class UserAdapter extends ArrayAdapter<User> {
         }
 
        TextView texTViewName =  convertView.findViewById(R.id.textViewName);
-        TextView textViewAge = convertView.findViewById(R.id.textViewAge);
+        //TextView textViewAge = convertView.findViewById(R.id.textViewAgee);
         User user = getItem(position);
         texTViewName.setText(user.getName());
-        textViewAge.setText(user.getAge()+" Years Old");
+        //textViewAge.setText(user.getAge()+" Years Old");
 
 
         return convertView;
 
 
     }
+
+
 }
